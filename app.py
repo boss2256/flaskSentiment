@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=["GET", "POST"])
 def main():  # put application's code here
-    if request.method == "sPOST":
+    if request.method == "POST":
         inp = request.form.get("inp")
         sid = SentimentIntensityAnalyzer()
         score = sid.polarity_scores(inp)
@@ -20,4 +20,5 @@ def main():  # put application's code here
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, ssl_context=("cert.pem", "key.pem"))
+    app.run(host='0.0.0.0', port=8080)
+    #ssl_context=("cert.pem", "key.pem"))
